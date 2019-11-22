@@ -55,9 +55,18 @@ variable "cert_domain" {
   default     = ""
 }
 
+variable "create_cert" {
+  description = "indicate if a cert should be created"
+  default = false
+}
+
 variable "prefix" {
   type        = "string"
   description = "Prefix for resources"
+}
+
+variable "project_name" {
+  description = "name to attach to external services components"
 }
 
 ### =================================================================== OPTIONAL
@@ -65,11 +74,12 @@ variable "prefix" {
 ### ======================================================================= MISC
 
 ## issued certificate that the lb will be configured to use
-data "aws_acm_certificate" "lb" {
+/*data "aws_acm_certificate" "lb" {
+  count = "${var.create_cert ? 0 : 1}"
   domain      = "${var.cert_domain != "" ? var.cert_domain : "*.${var.domain}"}"
   statuses    = ["ISSUED"]
   most_recent = true
-}
+}*/
 
 ## existing route53 zone where we'll create an alias to the lb
 data "aws_route53_zone" "zone" {

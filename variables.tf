@@ -24,10 +24,31 @@ variable "vpc_id" {
 
 ### =================================================================== OPTIONAL
 
+variable "public_subnets" {
+  type = "list"
+}
+
+variable "private_subnets" {
+  type = "list"
+}
+
+variable "public_subnets_cidr_blocks" {
+  type = "list"
+}
+
+variable "private_subnets_cidr_blocks" {
+  type = "list"
+}
+
+
 variable "prefix" {
   type        = "string"
   description = "Name prefix for resource names and tags"
   default     = "tfe"
+}
+
+variable "project_name" {
+  description = "name to attach to external services components"
 }
 
 variable "airgap_installer_url" {
@@ -64,6 +85,11 @@ variable "cert_domain" {
   type        = "string"
   description = "domain to search for ACM certificate with (default is *.domain)"
   default     = ""
+}
+
+variable "create_cert" {
+  description = "indicate if a cert should be created"
+  default = false
 }
 
 variable "distribution" {
@@ -304,3 +330,5 @@ resource "random_string" "setup_token" {
   upper   = false
   special = false
 }
+
+

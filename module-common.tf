@@ -4,4 +4,5 @@ module "common" {
   subnet_tags = "${var.subnet_tags}"
   allow_list  = "${var.allow_list}"
   prefix      = "${var.prefix}"
+  project_name = "${var.project_name}"
 }

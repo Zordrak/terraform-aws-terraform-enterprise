@@ -26,7 +26,7 @@ output "ssh_key_name" {
   value = "${local.key_name}"
 }
 
-output "private_subnets" {
+/*output "private_subnets" {
   value = ["${matchkeys(data.aws_subnet.selected.*.id, data.aws_subnet.selected.*.map_public_ip_on_launch, list("false"))}"]
 }
 
@@ -40,7 +40,7 @@ output "private_subnets_cidr_blocks" {
 
 output "public_subnets_cidr_blocks" {
   value = ["${matchkeys(data.aws_subnet.selected.*.cidr_block, data.aws_subnet.selected.*.map_public_ip_on_launch, list("true"))}"]
-}
+}*/
 
 output "intra_vpc_and_egress_sg_id" {
   value = "${aws_security_group.intra_vpc_and_egress.id}"

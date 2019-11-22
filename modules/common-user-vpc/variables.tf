@@ -3,11 +3,16 @@
 variable "vpc_id" {
   type        = "string"
   description = "AWS VPC id to install into"
+  default = ""
 }
 
 variable "prefix" {
   type        = "string"
   description = "Prefix for resource names"
+}
+
+variable "project_name" {
+  description = "name to attach to external services components"
 }
 
 ### =================================================================== OPTIONAL

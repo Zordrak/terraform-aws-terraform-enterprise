@@ -3,7 +3,7 @@
 
 locals {
   ssh_public_key_path = "${path.root}/work"
-  key_name            = "${var.prefix}-${random_string.install_id.result}"
+  key_name            = "${var.project_name}-${var.prefix}-${random_string.install_id.result}"
 
   public_key_filename  = "${local.ssh_public_key_path}/${local.key_name}.pub"
   private_key_filename = "${local.ssh_public_key_path}/${local.key_name}.priv"

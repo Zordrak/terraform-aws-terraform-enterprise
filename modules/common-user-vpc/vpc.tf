@@ -1,4 +1,4 @@
-data "aws_vpc" "selected" {
+/*data "aws_vpc" "selected" {
   id = "${var.vpc_id}"
 }
 
@@ -10,4 +10,4 @@ data "aws_subnet_ids" "selected" {
 data "aws_subnet" "selected" {
   count = "${length(data.aws_subnet_ids.selected.ids)}"
   id    = "${data.aws_subnet_ids.selected.ids[count.index]}"
-}
+}*/

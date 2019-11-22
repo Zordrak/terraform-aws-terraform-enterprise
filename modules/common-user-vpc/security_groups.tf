@@ -21,7 +21,7 @@ resource "aws_security_group" "intra_vpc_and_egress" {
   }
 
   tags = {
-    Name = "${var.prefix}"
+    Name = "${var.project_name}-${var.prefix}"
   }
 }
 

@@ -8,7 +8,7 @@ resource "aws_instance" "primary" {
   ami           = "${var.ami != "" ? var.ami : local.distro_ami}"
   instance_type = "${var.primary_instance_type}"
 
-  subnet_id = "${element(module.common.public_subnets, count.index)}"
+  subnet_id = "${element(var.public_subnets, count.index)}"
 
   vpc_security_group_ids = [
     ## ingress from lb
@@ -32,7 +32,7 @@ resource "aws_instance" "primary" {
   }
 
   tags {
-    Name           = "${var.prefix}-${module.common.install_id}:primary"
+    Name           = "${var.project_name}-${var.prefix}-${module.common.install_id}:primary"
     InstallationId = "${module.common.install_id}"
   }
 }

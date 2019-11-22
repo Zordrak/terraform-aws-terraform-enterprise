@@ -34,12 +34,12 @@ resource "aws_autoscaling_group" "secondary" {
   desired_capacity     = "${var.secondary_count}"
   min_size             = "${var.secondary_count}"
   max_size             = "${var.secondary_count}"
-  vpc_zone_identifier  = ["${module.common.private_subnets}"]
+  vpc_zone_identifier  = ["${var.private_subnets}"]
   target_group_arns    = ["${module.lb.https_group}"]
 
   tag {
     key                 = "Name"
-    value               = "${var.prefix}-${module.common.install_id}:secondary"
+    value               = "${var.project_name}-${var.prefix}-${module.common.install_id}:secondary"
     propagate_at_launch = true
   }
 
