@@ -299,7 +299,7 @@ data "aws_ami" "rhel" {
 
   filter {
     name   = "name"
-    values = ["RHEL-7.?*GA*"]
+    values = ["RHEL-7.6*GA*"]
   }
 
   filter {

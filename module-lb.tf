@@ -17,4 +17,5 @@ module "lb" {
 
   cert_domain = "${var.cert_domain}"
   create_cert = "${var.create_cert}"
+  cert_arn    = "${var.cert_arn}"
 }
